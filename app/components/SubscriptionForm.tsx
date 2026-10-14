@@ -4,6 +4,7 @@ import { useState } from "react";
 
 interface SubscriptionFormProps {
   membership: {
+    id: number;
     duration: string;
     price: string;
   };
@@ -20,6 +21,7 @@ export default function SubscriptionForm({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [phoneError, setPhoneError] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const isValidLebaneseMobile = (value: string) => {
     let number = value.replace(/[\s()-]/g, "");
@@ -49,17 +51,26 @@ export default function SubscriptionForm({
     setIsSubmitting(true);
 
     try {
-      // Temporary simulation until the backend is connected.
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-
-      console.log({
-        fullName: fullName.trim(),
-        phone: phone.trim(),
-        email: email.trim(),
-        membership,
+      const response = await fetch("/api/membership-registrations", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          fullName: fullName.trim(),
+          phone: phone.trim(),
+          email: email.trim(),
+          membershipId: membership.id,
+        }),
       });
 
-      // Clear the form fields.
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Registration failed. Please try again.");
+      }
+
+      // Clear the form fields after the registration is saved.
       setFullName("");
       setPhone("");
       setEmail("");
@@ -74,6 +85,12 @@ export default function SubscriptionForm({
       onSuccess();
     } catch (error) {
       console.error("Registration failed:", error);
+
+      setErrorMessage(
+        error instanceof Error
+          ? error.message
+          : "Registration failed. Please try again.",
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -110,6 +127,41 @@ export default function SubscriptionForm({
           <p className="mt-3 text-sm text-gray-400">
             Thank you! Your information has been received.
           </p>
+        </div>
+      ) : errorMessage ? (
+        <div className="flex min-h-64 flex-col items-center justify-center text-center">
+          <div className="flex h-16 w-16 animate-success-check items-center justify-center rounded-full border-2 border-red-500 text-red-500">
+            <svg
+              className="h-8 w-8"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              aria-hidden="true"
+            >
+              <path
+                d="M6 6l12 12M18 6L6 18"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </div>
+
+          <h3 className="mt-6 text-2xl font-bold uppercase text-white">
+            Registration Failed
+          </h3>
+
+          <p className="mt-3 text-sm text-gray-400" role="alert">
+            {errorMessage}
+          </p>
+
+          <button
+            type="button"
+            onClick={() => setErrorMessage("")}
+            className="mt-6 border border-yellow-500 px-6 py-3 text-sm font-bold uppercase tracking-wider text-yellow-500 transition hover:bg-yellow-500 hover:text-black"
+          >
+            Try Again
+          </button>
         </div>
       ) : (
         <>
