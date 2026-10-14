@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { sessions } from "@/data/session";
+import { LuArrowRight, LuX } from "react-icons/lu";
 
 export default function Booking() {
   const [selectedSession, setSelectedSession] = useState<number | null>(null);
@@ -51,8 +52,12 @@ export default function Booking() {
                   {session.name}
                 </h2>
 
-                <p className="mt-2 text-xs uppercase tracking-wider text-gray-300 sm:mt-3 sm:text-sm">
-                  View Session →
+                <p className="mt-2 flex items-center gap-2 text-xs uppercase tracking-wider text-gray-300 transition-colors duration-300 group-hover:text-yellow-400 sm:mt-3 sm:text-sm">
+                  View Session
+                  <LuArrowRight
+                    size={16}
+                    className="transition-transform duration-300 group-hover:translate-x-1"
+                  />
                 </p>
               </div>
             </button>
@@ -73,12 +78,13 @@ export default function Booking() {
           {/* Modal */}
           <div className="relative z-10 my-4 max-h-[95vh] w-full max-w-5xl overflow-y-auto border border-yellow-500/40 bg-zinc-950 shadow-[0_0_80px_rgba(234,179,8,0.12)] animate-[sessionOpen_0.45s_ease-out]">
             {/* Close */}
+
             <button
               onClick={() => setSelectedSession(null)}
               aria-label="Close session details"
-              className="absolute right-4 top-4 z-30 flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-black/80 text-2xl leading-none text-white backdrop-blur-sm transition hover:border-yellow-500 hover:text-yellow-500 sm:right-5 sm:top-5"
+              className="absolute right-4 top-4 z-30 flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-black/80 text-white backdrop-blur-sm transition hover:border-yellow-500 hover:text-yellow-500 sm:right-5 sm:top-5"
             >
-              ×
+              <LuX size={20} strokeWidth={2} />
             </button>
 
             <div className="grid md:grid-cols-2">

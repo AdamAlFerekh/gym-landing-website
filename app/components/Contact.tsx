@@ -1,3 +1,5 @@
+import { LuArrowUpRight } from "react-icons/lu";
+
 export default function Contact() {
   const whatsappNumber = "70763057";
   const emailAddress = "adamalferekh@gmail.com";
@@ -26,10 +28,14 @@ export default function Contact() {
             href={`https://wa.me/${whatsappNumber}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 bg-yellow-500 px-7 py-4 text-sm font-bold uppercase tracking-wider text-black transition hover:bg-yellow-400"
+            className="group inline-flex items-center justify-center gap-2 bg-yellow-500 px-7 py-4 text-sm font-bold uppercase tracking-wider text-black transition hover:bg-yellow-400"
           >
             WhatsApp Us
-            <span aria-hidden="true">↗</span>
+            <LuArrowUpRight
+              size={16}
+              aria-hidden="true"
+              className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            />
           </a>
 
           {/* <a

@@ -31,7 +31,7 @@ export default function Team() {
           {teamMembers.map((member: TeamMember, index: number) => (
             <ScrollReveal key={member.id} delay={index * 150}>
               <div className="group transition-transform duration-300 ease-out hover:-translate-y-2">
-                <div className="relative h-[380px] overflow-hidden bg-zinc-900 sm:h-[420px]">
+                <div className="relative h-95 overflow-hidden bg-zinc-900 sm:h-105">
                   <img
                     src={member.image}
                     alt={member.name}
