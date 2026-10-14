@@ -4,6 +4,17 @@ A modern, responsive gym website built with **Next.js, React, TypeScript, and Ta
 
 🔗 **Live Demo:** [View the Gym Website](https://gym-landing-website.vercel.app/)
 
+## Screenshots
+
+### Homepage
+![Gym homepage](public/screenshots/homepage.png)
+
+### Membership Plans
+![Membership plans](public/screenshots/memberships.png)
+
+### Our Team
+![Gym team section](public/screenshots/team.png)
+
 ## Features
 
 - **Responsive Design** — Layouts designed for desktop and mobile screens.
