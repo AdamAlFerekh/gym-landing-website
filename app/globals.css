@@ -88,3 +88,123 @@ body {
 .animate-success-check {
   animation: success-check 0.5s ease-out;
 }
+
+
+
+/* Hero entrance animations */
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-hero-label {
+  animation: hero-fade-up 600ms ease-out 100ms both;
+}
+
+.animate-hero-title {
+  animation: hero-fade-up 800ms ease-out 250ms both;
+}
+
+.animate-hero-description {
+  animation: hero-fade-up 700ms ease-out 450ms both;
+}
+
+.animate-hero-buttons {
+  animation: hero-fade-up 700ms ease-out 650ms both;
+}
+
+.animate-hero-stats {
+  animation: hero-fade-up 700ms ease-out 850ms both;
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .animate-hero-label,
+  .animate-hero-title,
+  .animate-hero-description,
+  .animate-hero-buttons,
+  .animate-hero-stats {
+    animation: none;
+  }
+}
+
+/* Cinematic amber lighting around the hero corners */
+.hero-corner-glow {
+  background:
+    radial-gradient(
+      ellipse at 0% 0%,
+      rgba(234, 179, 8, 0.24) 0%,
+      rgba(234, 179, 8, 0.08) 28%,
+      transparent 58%
+    ),
+    radial-gradient(
+      ellipse at 100% 0%,
+      rgba(234, 179, 8, 0.20) 0%,
+      rgba(234, 179, 8, 0.06) 30%,
+      transparent 58%
+    ),
+    radial-gradient(
+      ellipse at 100% 100%,
+      rgba(234, 179, 8, 0.10) 0%,
+      transparent 45%
+    ),
+    radial-gradient(
+      ellipse at 0% 100%,
+      rgba(234, 179, 8, 0.10) 0%,
+      transparent 45%
+    );
+
+  opacity: 0.85;
+  mix-blend-mode: screen;
+  animation: corner-light-pulse 8s ease-in-out infinite alternate;
+}
+
+@keyframes corner-light-pulse {
+  from {
+    opacity: 0.55;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .hero-corner-glow {
+    animation: none;
+    opacity: 0.1;
+  }
+}
+
+
+
+/* Scroll reveal */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 700ms ease-out,
+    transform 700ms ease-out;
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
