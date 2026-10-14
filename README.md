@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Gym Landing Website
+
+A modern, responsive gym website built with **Next.js, React, TypeScript, and Tailwind CSS**. The project features a premium dark design with yellow accents, membership options, training information, and interactive components.
+
+🔗 **Live Demo:** [View the Gym Website](https://gym-landing-website.vercel.app/)
+
+## Features
+
+- **Responsive Design** — Layouts designed for desktop and mobile screens.
+- **Homepage** — Hero section, gym introduction, trainer profiles, and calls to action.
+- **Memberships & Offers** — View subscription plans and training session options.
+- **Interactive Subscription Form** — Select a membership, enter contact details, and see form validation and a success state.
+- **FAQ Section** — Expandable questions and answers.
+- **Contact Section** — Contact links for email and WhatsApp.
+- **Navigation** — Separate pages for the homepage, booking, and offers.
+
+## Tech Stack
+
+- **Next.js** — React framework using the App Router.
+- **React** — Component-based user interfaces.
+- **TypeScript** — Type safety and clearer code.
+- **Tailwind CSS** — Responsive styling and layout.
+- **Vercel** — Website deployment and hosting.
+- **Git & GitHub** — Version control and source code management.
 
 ## Getting Started
 
-First, run the development server:
+Follow these steps to run the project locally.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Prerequisites
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Make sure you have [Node.js](https://nodejs.org/) and npm installed.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Installation
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Clone the repository:
 
-## Learn More
+   ```bash
+   git clone https://github.com/AdamAlFerekh/gym-landing-website.git
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+2. Navigate to the project folder:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```bash
+   cd gym-landing-website
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. Install the dependencies:
 
-## Deploy on Vercel
+   ```bash
+   npm install
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. Start the development server:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+   ```bash
+   npm run dev
+   ```
+
+5. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Current Limitations
+
+The subscription form currently demonstrates client-side validation and a simulated submission flow. It does not yet store registrations in a database or send them to a backend. Contact details also need to be configured before the contact links can be used as real gym contact methods.
+
+## Future Improvements
+
+- Connect subscription registrations to a backend and database.
+- Add real booking and registration functionality.
+- Configure the gym's contact information.
+- Add project screenshots to the README.
+
+## Author
+
+**Adam Al Ferekh**
+
+- [GitHub](https://github.com/AdamAlFerekh)
+- [Live Project](https://gym-landing-website.vercel.app/)
