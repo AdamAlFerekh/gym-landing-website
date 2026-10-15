@@ -6,6 +6,7 @@ import Team from "@/app/components/home/Team";
 import CTA from "@/app/components/home/CTA";
 import FAQ from "@/app/components/FAQ";
 import Contact from "@/app/components/Contact";
+import Testimonials from "@/app/components/home/Testimonials";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <Hero />
       <About />
       <Team />
+      <Testimonials />
       <CTA />
       <FAQ />
       <Contact />
