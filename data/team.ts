@@ -21,8 +21,7 @@ export const teamMembers: TeamMember[] = [
     id: 3,
     name: "Ibrahim",
     role: "Personal Trainer",
-    description:
-      "Focused on strength training and helping members build sustainable habits.",
+    description: "Focused on abs-training and helping members build resistant core.",
     image: "/team/bob_trainer.jpg",
   },
 ];
