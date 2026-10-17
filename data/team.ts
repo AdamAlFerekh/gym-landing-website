@@ -3,7 +3,7 @@ import { TeamMember } from "@/types/team";
 export const teamMembers: TeamMember[] = [
   {
     id: 1,
-    name: "Mahmoud Al Ali",
+    name: "Mahmoud",
     role: "Personal Trainer",
     description:
       "Dedicated to creating a stronger community and helping members reach their full potential.",
@@ -19,7 +19,7 @@ export const teamMembers: TeamMember[] = [
   },
   {
     id: 3,
-    name: "Ibrahim Machmouchi",
+    name: "Ibrahim",
     role: "Personal Trainer",
     description:
       "Focused on strength training and helping members build sustainable habits.",
