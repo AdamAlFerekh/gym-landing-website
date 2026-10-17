@@ -16,9 +16,21 @@ export async function POST(request: Request) {
   }
 
   try {
-    const body = await request.json();
+    const body: unknown = await request.json();
 
-    const { fullName, phone, email, membershipId } = body;
+    if (!body || typeof body !== "object" || Array.isArray(body)) {
+      return NextResponse.json(
+        { error: "Please provide valid registration details." },
+        { status: 400 },
+      );
+    }
+
+    const { fullName, phone, email, membershipId } = body as {
+      fullName?: unknown;
+      phone?: unknown;
+      email?: unknown;
+      membershipId?: unknown;
+    };
 
     if (
       typeof fullName !== "string" ||

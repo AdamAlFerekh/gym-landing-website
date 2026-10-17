@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-
+import { isValidLebaneseMobile } from "@/lib/validation";
+import { submitMembershipRegistration } from "@/services/membershipService";
 interface SubscriptionFormProps {
   membership: {
     id: number;
@@ -23,18 +24,6 @@ export default function SubscriptionForm({
   const [phoneError, setPhoneError] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
-  const isValidLebaneseMobile = (value: string) => {
-    let number = value.replace(/[\s()-]/g, "");
-
-    if (number.startsWith("00961")) {
-      number = "+961" + number.slice(5);
-    }
-
-    return /^(?:03\d{6}|(?:70|71|76|78|79|81)\d{6}|\+961(?:3\d{6}|(?:70|71|76|78|79|81)\d{6}))$/.test(
-      number,
-    );
-  };
-
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -51,24 +40,12 @@ export default function SubscriptionForm({
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("/api/membership-registrations", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          fullName: fullName.trim(),
-          phone: phone.trim(),
-          email: email.trim(),
-          membershipId: membership.id,
-        }),
+      await submitMembershipRegistration({
+        fullName: fullName.trim(),
+        phone: phone.trim(),
+        email: email.trim(),
+        membershipId: membership.id,
       });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || "Registration failed. Please try again.");
-      }
 
       // Clear the form fields after the registration is saved.
       setFullName("");
