@@ -98,11 +98,12 @@ export default function SubscriptionForm({
           </div>
 
           <h3 className="mt-6 text-2xl font-bold uppercase text-white">
-            Registration Successful
+            Registration Request Received
           </h3>
 
           <p className="mt-3 text-sm text-gray-400">
-            Thank you! Your information has been received.
+            Thank you! Your registration request has been received and will be
+            reviewed by the gym.
           </p>
         </div>
       ) : errorMessage ? (
